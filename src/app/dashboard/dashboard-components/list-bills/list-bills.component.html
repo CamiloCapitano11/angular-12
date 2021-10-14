@@ -25,8 +25,8 @@
                 <mat-action-row>
                     <!--<button mat-button color="primary" (click)="nextStep()">Next</button>-->
                     <mat-panel-title>Total</mat-panel-title>
-                    <mat-panel-description *ngFor = ""> Total sin IVA: {{ (bill.Detalle[0].PrecioUnitario + bill.Detalle[1].PrecioUnitario) - bill.Descuento }}</mat-panel-description> 
-                    <mat-panel-description> Total con IVA: {{ ( - bill.Descuento) + bill.IVA }}</mat-panel-description> 
+                    <mat-panel-description> Total sin IVA: {{(bill.Detalle[0].PrecioUnitario + bill.Detalle[1].PrecioUnitario) - bill.Descuento | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description> 
+                    <mat-panel-description> Total con IVA: {{( (bill.Detalle[0].PrecioUnitario + bill.Detalle[1].PrecioUnitario) - bill.Descuento) + bill.IVA | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description> 
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
