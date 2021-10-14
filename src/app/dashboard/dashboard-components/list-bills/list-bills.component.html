@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-content>
+    <mat-card-title>Facturas</mat-card-title>
+    <mat-card-subtitle>Listado completo de las facturas existentes</mat-card-subtitle>
+    
+        <mat-accordion class="example-headers-align" *ngFor = "let bill of bills">
+            <mat-expansion-panel hideToggle="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Factura N°: {{ bill.NumeroFactura }} </mat-panel-title>
+                    <mat-panel-description> Fecha: {{ bill.Fecha | date:'dd/MM/yyyy' }}
+                        <mat-icon>receipt</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <!--<mat-form-field>
+                    <input matInput placeholder="First name"> 
+                </mat-form-field>-->
+                <mat-panel-title>Cliente</mat-panel-title>
+                <mat-panel-description> N° de Documento: {{ bill.DocumentoCliente }}</mat-panel-description> 
+                <mat-panel-description> Nombre: {{ bill.NombreCliente }}</mat-panel-description> 
+                <!--<mat-panel-title> Personal data: 
+                    <mat-panel-description> Esta es una linda prueba</mat-panel-description> 
+                </mat-panel-title>
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Age"> </mat-form-field>-->
+                <mat-action-row>
+                    <!--<button mat-button color="primary" (click)="nextStep()">Next</button>-->
+                    <mat-panel-title>Total</mat-panel-title>
+                    <mat-panel-description *ngFor = ""> Total sin IVA: {{ (bill.Detalle[0].PrecioUnitario + bill.Detalle[1].PrecioUnitario) - bill.Descuento }}</mat-panel-description> 
+                    <mat-panel-description> Total con IVA: {{ ( - bill.Descuento) + bill.IVA }}</mat-panel-description> 
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>
