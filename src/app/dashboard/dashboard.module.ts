@@ -12,6 +12,8 @@ import { StickerComponent } from './dashboard-components/sticker/sticker.compone
 import { ContactsComponent } from './dashboard-components/contacts/contacts.component';
 import { ActivityComponent } from './dashboard-components/activity/activity.component';
 import { ListBillsComponent } from './dashboard-components/list-bills/list-bills.component';
+import { FormBillComponent } from './dashboard-components/form-bill/form-bill.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,8 +21,9 @@ import { ListBillsComponent } from './dashboard-components/list-bills/list-bills
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
+    ReactiveFormsModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent, ListBillsComponent]
+  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent, ListBillsComponent, FormBillComponent]
 })
 export class DashboardModule {}

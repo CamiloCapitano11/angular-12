@@ -1,0 +1,56 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+	<!-- Card column -->
+	<div fxFlex.gt-sm="100%" fxFlex="100">
+		<mat-card>
+			<mat-card-content>
+				<mat-card-title>Proceso de Venta <span class="bg-success text-white rounded font-12 pl-5 pr-5">Ingresar</span></mat-card-title>
+				
+				<mat-horizontal-stepper linear #steppererror>
+					 <mat-step [stepControl]="errorfirstFormGroup" errorMessage="Name is required.">
+					    <form [formGroup]="errorfirstFormGroup">
+					      <ng-template matStepLabel>Factura</ng-template>
+					      <mat-form-field>
+					        <input matInput type="number" placeholder="Número de Factura" formControlName="idBill" required>
+					      </mat-form-field>
+                          <mat-form-field>
+                            <mat-select placeholder="Tipo de Pago" formControlName="typePay" required>
+                                <mat-option>Seleccione</mat-option>
+                                <mat-option value="Contado">Contado</mat-option>
+                                <mat-option value="Credito">Crédito</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+					      <div>
+					        <button mat-raised-button color="accent" matStepperNext>Next</button>
+					      </div>
+					    </form>
+					</mat-step>
+					<mat-step [stepControl]="errorsecondFormGroup" errorMessage="Address is required.">
+					    <form [formGroup]="errorsecondFormGroup">
+					      <ng-template matStepLabel>Datos Cliente</ng-template>
+					      <mat-form-field>
+					        <input matInput placeholder="Address" formControlName="errorsecondCtrl" required>
+					      </mat-form-field>
+					      <div class="button-row">
+					        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+					        <button mat-raised-button color="accent" matStepperNext>Next</button>
+					      </div>
+					    </form>
+					</mat-step>
+					<mat-step [stepControl]="errorthirdFormGroup" errorMessage="Address is required.">
+					    <form [formGroup]="errorthirdFormGroup">
+                            <ng-template matStepLabel>Productos</ng-template>
+                            <mat-form-field>
+                              <input matInput placeholder="Address" formControlName="errorsecondCtrl" required>
+                            </mat-form-field>
+                            <div class="button-row">
+                              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                              <button mat-raised-button color="accent" matStepperNext>Next</button>
+                            </div>
+                          </form>
+					</mat-step>
+				</mat-horizontal-stepper>
+				
+			</mat-card-content>
+		</mat-card>    
+	</div>
+</div>

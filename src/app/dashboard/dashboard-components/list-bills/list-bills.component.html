@@ -2,6 +2,13 @@
     <mat-card-content>
     <mat-card-title>Facturas</mat-card-title>
     <mat-card-subtitle>Listado completo de las facturas existentes</mat-card-subtitle>
+    <div fxLayout="row wrap">
+        <div fxFlex.gt-sm="100" fxFlex="100">
+            <mat-form-field>
+                <input matInput placeholder="Buscar por Cliente" >
+            </mat-form-field>
+        </div>
+    </div>
     
         <mat-accordion class="example-headers-align" *ngFor = "let bill of bills">
             <mat-expansion-panel hideToggle="true">
@@ -14,14 +21,31 @@
                 <!--<mat-form-field>
                     <input matInput placeholder="First name"> 
                 </mat-form-field>-->
-                <mat-panel-title>Cliente</mat-panel-title>
-                <mat-panel-description> N° de Documento: {{ bill.DocumentoCliente }}</mat-panel-description> 
-                <mat-panel-description> Nombre: {{ bill.NombreCliente }}</mat-panel-description> 
                 <!--<mat-panel-title> Personal data: 
                     <mat-panel-description> Esta es una linda prueba</mat-panel-description> 
                 </mat-panel-title>
                 <mat-form-field>
                     <input matInput type="number" min="1" placeholder="Age"> </mat-form-field>-->
+                <mat-action-row>
+                    <mat-panel-title>Cliente</mat-panel-title>
+                    <mat-panel-description> N° de Documento: {{ bill.DocumentoCliente }}</mat-panel-description> 
+                    <mat-panel-description> Nombre: {{ bill.NombreCliente }}</mat-panel-description>
+                </mat-action-row>
+                <mat-panel-title>Detalle</mat-panel-title>
+                <mat-grid-list cols="4" rowHeight="3:1">
+                    <mat-grid-tile><strong>Item</strong></mat-grid-tile>
+                    <mat-grid-tile><strong>Producto</strong></mat-grid-tile>
+                    <mat-grid-tile><strong>Cantidad</strong></mat-grid-tile>
+                    <mat-grid-tile><strong>Precio</strong></mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[0].Item }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[0].Producto }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[0].Cantidad }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[0].PrecioUnitario| currency:'CAD':'symbol-narrow':'4.2-2' }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[1].Item }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[1].Producto }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[1].Cantidad }}</mat-grid-tile>
+                    <mat-grid-tile>{{ bill.Detalle[1].PrecioUnitario| currency:'CAD':'symbol-narrow':'4.2-2' }}</mat-grid-tile>
+                </mat-grid-list>  
                 <mat-action-row>
                     <!--<button mat-button color="primary" (click)="nextStep()">Next</button>-->
                     <mat-panel-title>Total</mat-panel-title>
