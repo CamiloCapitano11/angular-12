@@ -15,7 +15,7 @@ export class ListBillsComponent implements OnInit {
   constructor(private api: BillsService) { }
 
   ngOnInit(): void {
-    debugger
+    //debugger
     this.api.getAll().subscribe((data) => {
       let dataResponse: Bills[] = data;
       if(dataResponse != null){

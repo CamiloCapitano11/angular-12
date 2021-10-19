@@ -6,11 +6,11 @@
 				<mat-card-title>Proceso de Venta <span class="bg-success text-white rounded font-12 pl-5 pr-5">Ingresar</span></mat-card-title>
 				
 				<mat-horizontal-stepper linear #steppererror>
-					 <mat-step [stepControl]="errorfirstFormGroup" errorMessage="Name is required.">
+					 <mat-step [stepControl]="errorfirstFormGroup" errorMessage="Por favor ingresa toda la información necesaria.">
 					    <form [formGroup]="errorfirstFormGroup">
 					      <ng-template matStepLabel>Factura</ng-template>
 					      <mat-form-field>
-					        <input matInput type="number" placeholder="Número de Factura" formControlName="idBill" required>
+					        <input matInput type="number" placeholder="Número de Factura" min="1" formControlName="idBill" required>
 					      </mat-form-field>
                           <mat-form-field>
                             <mat-select placeholder="Tipo de Pago" formControlName="typePay" required>
@@ -20,32 +20,67 @@
                             </mat-select>
                         </mat-form-field>
 					      <div>
-					        <button mat-raised-button color="accent" matStepperNext>Next</button>
+					        <button mat-raised-button color="accent" matStepperNext>Siguiente</button>
 					      </div>
 					    </form>
 					</mat-step>
-					<mat-step [stepControl]="errorsecondFormGroup" errorMessage="Address is required.">
+					<mat-step [stepControl]="errorsecondFormGroup" errorMessage="Por favor ingresa toda la información necesaria.">
 					    <form [formGroup]="errorsecondFormGroup">
 					      <ng-template matStepLabel>Datos Cliente</ng-template>
 					      <mat-form-field>
-					        <input matInput placeholder="Address" formControlName="errorsecondCtrl" required>
+					        <input matInput type="number" placeholder="Número de Documento" min="1" formControlName="document" required>
 					      </mat-form-field>
+						  <mat-form-field>
+							<input matInput type="text" placeholder="Nombre Completo" formControlName="clientName" required>
+						  </mat-form-field>
 					      <div class="button-row">
-					        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-					        <button mat-raised-button color="accent" matStepperNext>Next</button>
-					      </div>
+							<button mat-raised-button color="primary" matStepperPrevious>Anterior</button>
+							<button mat-raised-button color="accent" matStepperNext>Siguiente</button>
+						  </div>
 					    </form>
 					</mat-step>
-					<mat-step [stepControl]="errorthirdFormGroup" errorMessage="Address is required.">
+					<mat-step [stepControl]="errorthirdFormGroup" errorMessage="Por favor ingresa toda la información necesaria.">
+						<!--<form [formGroup]="formulario">
+							<div formArrayName="experienciaLaboral">
+							  <div *ngFor="let trabajo of experienciaLaboral.controls">
+								<input>
+							  </div>
+							</div>
+						</form>-->
 					    <form [formGroup]="errorthirdFormGroup">
                             <ng-template matStepLabel>Productos</ng-template>
+							<mat-panel-title>Producto 1</mat-panel-title>
                             <mat-form-field>
-                              <input matInput placeholder="Address" formControlName="errorsecondCtrl" required>
-                            </mat-form-field>
+								<input matInput type="number" placeholder="Número de Inventario" formControlName="item" required>								
+							</mat-form-field>
+							  <mat-form-field>
+								<input matInput type="text" placeholder="Nombre Producto" formControlName="product" required>
+							</mat-form-field>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Cantidad" min="1" formControlName="quantity" required>
+							</mat-form-field>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Precio" min="1" formControlName="price" required>
+							</mat-form-field>
+							<mat-panel-title>Producto 2</mat-panel-title>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Número de Inventario" formControlName="item2" required>								
+							</mat-form-field>
+							  <mat-form-field>
+								<input matInput type="text" placeholder="Nombre Producto" formControlName="product2" required>
+							</mat-form-field>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Cantidad" min="1" formControlName="quantity2" required>
+							</mat-form-field>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Precio" min="1" formControlName="price2" required>
+							</mat-form-field>
+							<mat-form-field>
+								<input matInput type="number" placeholder="Porcentaje de Descuento" formControlName="discount" required>
+							  </mat-form-field>
                             <div class="button-row">
-                              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                              <button mat-raised-button color="accent" matStepperNext>Next</button>
-                            </div>
+								<button mat-raised-button color="primary" (click)="enviarData()" matStepperPrevious>Registrar</button>
+							</div>
                           </form>
 					</mat-step>
 				</mat-horizontal-stepper>
