@@ -3,17 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',
-  template: `<h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput tabindex="1" [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="data.animal" tabindex="2">Ok</button>
-  <button mat-button (click)="onNoClick()" tabindex="-1">No Thanks</button>
-</div>`
+  template: 'dialog-overview-example.html'
 })
 export class DialogOverviewExampleDialogComponent {
   constructor(

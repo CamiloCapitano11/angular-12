@@ -1,16 +1,16 @@
 <mat-card>
     <mat-card-content>
-    <mat-card-title>Facturas</mat-card-title>
-    <mat-card-subtitle>Listado completo de las facturas existentes</mat-card-subtitle>
-    <div fxLayout="row wrap">
-        <div fxFlex.gt-sm="100" fxFlex="100">
-            <mat-form-field>
-                <input matInput placeholder="Buscar por Cliente" >
-            </mat-form-field>
+        <mat-card-title>Facturas</mat-card-title>
+        <mat-card-subtitle>Listado completo de las facturas existentes</mat-card-subtitle>
+        <div fxLayout="row wrap">
+            <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                    <input matInput placeholder="Buscar por Número de Documento" [(ngModel)]="filterbill">
+                </mat-form-field>
+            </div>
         </div>
-    </div>
-    
-        <mat-accordion class="example-headers-align" *ngFor = "let bill of bills">
+
+        <mat-accordion class="example-headers-align" *ngFor="let bill of bills | filter: filterbill">
             <mat-expansion-panel hideToggle="true">
                 <mat-expansion-panel-header>
                     <mat-panel-title> Factura N°: {{ bill.NumeroFactura }} </mat-panel-title>
@@ -28,7 +28,7 @@
                     <input matInput type="number" min="1" placeholder="Age"> </mat-form-field>-->
                 <mat-action-row>
                     <mat-panel-title>Cliente</mat-panel-title>
-                    <mat-panel-description> N° de Documento: {{ bill.DocumentoCliente }}</mat-panel-description> 
+                    <mat-panel-description> N° de Documento: {{ bill.DocumentoCliente }}</mat-panel-description>
                     <mat-panel-description> Nombre: {{ bill.NombreCliente }}</mat-panel-description>
                 </mat-action-row>
                 <mat-panel-title>Detalle</mat-panel-title>
@@ -49,8 +49,8 @@
                 <mat-action-row>
                     <!--<button mat-button color="primary" (click)="nextStep()">Next</button>-->
                     <mat-panel-title>Total</mat-panel-title>
-                    <mat-panel-description> Total sin IVA: {{((bill.Detalle[0].Cantidad * bill.Detalle[0].PrecioUnitario) + (bill.Detalle[1].Cantidad * bill.Detalle[1].PrecioUnitario)) - bill.Descuento | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description> 
-                    <mat-panel-description> Total con IVA: {{( ((bill.Detalle[0].Cantidad * bill.Detalle[0].PrecioUnitario) + (bill.Detalle[1].Cantidad * bill.Detalle[1].PrecioUnitario)) - bill.Descuento) + bill.IVA | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description> 
+                    <mat-panel-description> Total sin IVA: {{((bill.Detalle[0].Cantidad * bill.Detalle[0].PrecioUnitario) + (bill.Detalle[1].Cantidad * bill.Detalle[1].PrecioUnitario)) - bill.Descuento | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description>
+                    <mat-panel-description> Total con IVA: {{( ((bill.Detalle[0].Cantidad * bill.Detalle[0].PrecioUnitario) + (bill.Detalle[1].Cantidad * bill.Detalle[1].PrecioUnitario)) - bill.Descuento) + bill.IVA | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description>
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>

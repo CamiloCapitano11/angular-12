@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Factura N°: {{ data.idBill }}</h1>
+<div mat-dialog-content>
+    <mat-panel-title>Total</mat-panel-title>
+    <mat-panel-description> Total sin IVA: {{ data.Total | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description>
+    <mat-panel-description> Total con IVA: {{ data.IVA | currency:'CAD':'symbol-narrow':'4.2-2'}}</mat-panel-description>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cerrar</button>
+</div>

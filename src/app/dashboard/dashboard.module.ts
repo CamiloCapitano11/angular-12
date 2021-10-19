@@ -14,6 +14,9 @@ import { ActivityComponent } from './dashboard-components/activity/activity.comp
 import { ListBillsComponent } from './dashboard-components/list-bills/list-bills.component';
 import { FormBillComponent } from './dashboard-components/form-bill/form-bill.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataDialogComponent } from './dashboard-components/data-dialog/data-dialog.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -22,8 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     ChartistModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    FormsModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent, ListBillsComponent, FormBillComponent]
+  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent, ListBillsComponent, FormBillComponent, DataDialogComponent]
 })
 export class DashboardModule {}

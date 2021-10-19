@@ -17,8 +17,8 @@ export class BillsService {
       return this.http.get<Bills[]>(`${environment.API_URL}/Facturas`).pipe(catchError(this.handlerError));
     }
 
-    sendBill(json: any){
-      return this.http.post(`${environment.API_URL}/Facturas`, json).pipe(catchError(this.handlerError));
+    sendBill(json: any): Observable<Bills>{
+      return this.http.post<Bills>(`${environment.API_URL}/Facturas`, json).pipe(catchError(this.handlerError));
     }
 
     handlerError(error: { message: any; }): Observable<never> {

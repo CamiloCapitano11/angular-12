@@ -19,7 +19,6 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

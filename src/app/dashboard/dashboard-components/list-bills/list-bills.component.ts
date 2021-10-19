@@ -11,14 +11,16 @@ export class ListBillsComponent implements OnInit {
 
   bills: Bills[] =[];
   Total: number = 0;
+  filterbill: string = "";
 
   constructor(private api: BillsService) { }
 
   ngOnInit(): void {
-    //debugger
+    debugger
     this.api.getAll().subscribe((data) => {
       let dataResponse: Bills[] = data;
       if(dataResponse != null){
+        debugger
         this.bills = dataResponse;
       }
     })
